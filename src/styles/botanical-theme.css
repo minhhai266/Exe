@@ -1,0 +1,148 @@
+/* Fresh Emerald, Soft Mint & Warm Cream. UI only: never recolor specimen SVGs or chemical swatches. */
+:root{color-scheme:light;--green:var(--brand-primary);--green-dark:var(--brand-primary-hover);--mint:var(--brand-primary-subtle)}
+html,body,#root{background:var(--bg-app);color:var(--text-primary)}
+body{accent-color:var(--brand-primary)}
+::selection{background:var(--brand-primary-light);color:var(--brand-primary-active)}
+input,select,textarea{accent-color:var(--button-accessible)}
+input::placeholder,textarea::placeholder{color:var(--text-muted-accessible);opacity:1}
+:where(input:not([type=checkbox]):not([type=radio]):not([type=color]),select,textarea){background:var(--bg-surface);color:var(--text-primary);border-color:var(--border-default)}
+:where(input,select,textarea):focus{border-color:var(--border-focus);box-shadow:0 0 0 3px var(--focus-glow)}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--border-focus);outline-offset:3px}
+:where(a,button,input,select,textarea){transition:background-color .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease}
+.btn,.admin-button{border-radius:var(--radius-control)}
+.btn.primary,.btn.primary:not(:disabled){background:var(--button-accessible);border-color:var(--button-accessible);color:var(--text-on-brand);box-shadow:var(--action-shadow)}
+.btn.primary:hover:not(:disabled){background:var(--brand-primary-hover);border-color:var(--button-accessible);color:var(--text-on-brand-hover)}
+.btn.primary:active:not(:disabled){background:var(--brand-primary-active);border-color:var(--brand-primary-active);color:var(--text-on-solid)}
+.btn.white,.btn.white:not(:disabled){background:var(--bg-surface);border-color:var(--border-strong);color:var(--brand-primary-active)}
+.btn.white:hover:not(:disabled){background:var(--bg-hover);border-color:var(--brand-primary)}
+.btn.ghost,.btn.ghost:not(:disabled),.text-link,.back-link{color:var(--text-link)}
+.btn:disabled,.admin-button:disabled{background:var(--disabled-bg);border-color:var(--border-default);color:var(--disabled-text);box-shadow:none;transform:none;opacity:1}
+.btn.danger,.btn.danger:not(:disabled){background:var(--status-error);border-color:var(--status-error);color:var(--text-on-solid)}
+.header,.public-mobile-menu,.workspace-top,.workspace-menu{background:var(--bg-surface);border-color:var(--border-default);box-shadow:0 2px 12px #26352b04}
+.logo,.logo-light{color:var(--brand-green)}
+.logo sup{color:var(--text-link)}
+.logo .logo-mark{background:var(--brand-primary-subtle);color:var(--brand-primary);border:1px solid var(--brand-primary-light);box-shadow:none}
+.public-links a{color:var(--text-secondary)}
+.public-links a.active,.public-links a:hover{color:var(--text-link)}
+.workspace .workspace-sidebar{background:var(--bg-surface);border-color:var(--border-default)}
+.workspace-sidebar nav a{color:var(--text-primary)}
+.workspace-sidebar nav a.active{background:var(--bg-selected);color:var(--brand-primary-active);border-color:var(--brand-primary-light)}
+.workspace-sidebar nav a:hover{background:var(--bg-hover)}
+.sidebar-shade{background:var(--overlay)}
+.workspace .page-heading.page-banner,.page-heading.page-banner{background:var(--brand-primary-subtle);border:1px solid var(--brand-primary-light);box-shadow:none}
+.workspace .page-heading.page-banner :is(h1,p,.eyebrow),.page-heading.page-banner :is(h1,p,.eyebrow){color:var(--brand-primary-active)}
+.page-heading.page-banner>.btn:not(:disabled){background:var(--bg-surface);border-color:var(--brand-primary-light)}
+.workspace .panel,.workspace .stat,.workspace .folder-card,.workspace .folder-lesson,.experiment-card,.auth-card,.audience-card,.price-card,.modal,.action-dialog{background:var(--bg-surface);border-color:var(--border-default);box-shadow:var(--shadow-card)}
+.workspace .panel,.workspace .stat,.workspace .folder-card,.experiment-card,.auth-card,.price-card,.audience-card{border-radius:var(--radius-card)}
+.auth-card input,.workspace input,.workspace select,.workspace textarea{background:var(--bg-surface);border-color:var(--border-default)}
+.auth-card input:focus{outline-color:var(--border-focus)}
+.auth-roles button{background:var(--bg-surface);border-color:var(--border-default);color:var(--text-primary)}
+.auth-roles button.selected{background:var(--bg-selected);border-color:var(--brand-primary);color:var(--brand-primary-active)}
+.auth-note{background:var(--bg-surface-secondary);color:var(--text-secondary);border:1px solid var(--border-default)}
+.auth-switch a{color:var(--text-link)}
+.auth-card>p,.auth-intro>p{color:var(--text-secondary)}
+.workspace th,thead{background:var(--bg-surface-secondary);color:var(--text-secondary)}
+.workspace td,.workspace th{border-color:var(--border-default)}
+.workspace tbody tr:hover{background:var(--bg-hover)}
+.workspace tbody,.admin-root tbody{background:var(--bg-surface)}
+.workspace input:focus,.workspace select:focus,.workspace textarea:focus{border-color:var(--border-focus)}
+.homepage,.homepage .hero,footer{background:var(--bg-app)}
+.homepage .hero{border-color:var(--border-default)}
+.homepage .hero-title-intro{color:var(--text-primary)}
+.homepage .hero-title-accent{color:var(--brand-primary);text-shadow:none}
+.homepage .hero-title-finale::before{background:var(--brand-sage)}
+.homepage .hero-badge,.eyebrow{color:var(--text-link)}
+.homepage .hero-badge>span{background:var(--brand-primary)}
+.homepage .preview-inner{background:var(--lab-wall)}
+.homepage .preview-title,.homepage .formula{background:var(--bg-surface);border-color:var(--border-default);color:var(--text-primary)}
+.homepage .hero .lab-preview{border-color:var(--border-default);box-shadow:var(--shadow-card)}
+.homepage .trust-strip,.homepage .features-section,.materials-home-section{background:var(--bg-surface-secondary);border-color:var(--border-default)}
+.homepage .experiment-visual,.detail-art,.library-banner{background:var(--brand-primary-subtle)}
+.homepage .audience-card.teacher,.homepage .cta-section,.discovery-panel,.hint-preview,.journal-preview,.catalyst-preview{background:var(--bg-surface);border-color:var(--border-default)}
+.homepage .cta-section{border:1px solid var(--brand-primary-light)}
+.homepage .feature-selectors button{background:var(--bg-surface);border-color:var(--border-default);color:var(--text-primary)}
+.homepage .feature-selectors button[aria-pressed=true]{background:var(--bg-selected);border-color:var(--brand-primary);color:var(--brand-primary-active)}
+.homepage .feature-icon,.homepage .step>span,.stat-icon,.equipment-icon{background:var(--brand-primary-subtle);color:var(--brand-primary-active)}
+.homepage .section-heading p,.homepage .scene-caption,.homepage .trust-inner,.homepage .library-footnote,.homepage .card-meta{color:var(--text-secondary)}
+.homepage .price-card.featured{border-color:var(--brand-primary);box-shadow:var(--shadow-card)}
+.homepage .popular-tag{background:var(--accent-orange);color:var(--text-primary)}
+.homepage .tag,.homepage .preview-title .tag{background:var(--bg-surface-secondary);border-color:var(--border-default);color:var(--text-secondary)}
+.pricing-section{background:var(--bg-surface-secondary);border-color:var(--border-default)}
+.price-ribbon{background:var(--bg-selected);border-color:var(--brand-primary-light);color:var(--brand-primary-active)}
+.billing-switch{background:var(--bg-surface-secondary);border:1px solid var(--border-default)}
+.billing-switch button.active{background:var(--bg-surface);color:var(--brand-primary-active);box-shadow:var(--shadow-card)}
+.homepage .home-book>div{background:var(--button-accessible);border-color:var(--brand-primary-active);color:var(--text-on-brand);box-shadow:3px 2px var(--border-default)}
+.homepage .home-book.book-color-1>div{background:var(--status-info);border-color:#2D536B;color:var(--text-on-solid)}
+.homepage .home-book.book-color-2>div{background:#8B7253;border-color:#705A40;color:var(--text-on-solid)}
+.metric-amber .metric-icon,.result-page .stats-grid .stat:first-child .stat-icon{background:var(--accent-orange);color:var(--accent-orange-ink)}
+.result-page .stats-grid .stat:first-child{border-color:var(--accent-orange)}
+.result-page .stats-grid .stat:first-child strong{color:var(--accent-orange-ink)}
+.price-card.featured .price-ribbon{background:var(--accent-orange-soft);border-color:var(--accent-orange);color:var(--accent-orange-ink)}
+.progress-track{background:var(--brand-primary-subtle)}
+.progress-track>span{background:var(--brand-green)}
+.immersive-lab.simulation-lab .lab-top{background:transparent;border:0;padding-bottom:0;column-gap:8px}
+.immersive-lab.simulation-lab .lab-top-actions{border-left:0;padding-left:0}
+.immersive-lab.simulation-lab .lab-actions-menu>div{background:var(--bg-surface);border-color:var(--border-default)}
+.immersive-lab.simulation-lab .lab-top h2,.immersive-lab.simulation-lab .sidebar-heading h3,.immersive-lab.simulation-lab .selected-title h3{color:var(--text-primary)}
+.immersive-lab.simulation-lab .sidebar-heading>svg,.immersive-lab.simulation-lab .back-link{color:var(--brand-primary)}
+.immersive-lab.simulation-lab .bench-heading>span{color:var(--text-secondary)}
+.immersive-lab.simulation-lab .live-dot{background:var(--brand-primary)}
+.immersive-lab.simulation-lab .inventory-item{background:var(--bg-surface)}
+.immersive-lab.simulation-lab .inventory-item:hover{background:var(--bg-hover)}
+.immersive-lab.simulation-lab .inventory-item .equipment-icon,.immersive-lab.simulation-lab .inventory-item>svg:last-child{background:var(--bg-selected);color:var(--brand-primary)}
+.immersive-lab.simulation-lab .instrument-description{background:var(--bg-surface-secondary);border-color:var(--border-default)}
+.immersive-lab.simulation-lab .instrument-description p,.immersive-lab.simulation-lab .selected-title small{color:var(--text-secondary)}
+.immersive-lab.simulation-lab .instrument-description button{color:var(--text-link)}
+.immersive-lab.simulation-lab .property-section :is(input,select,textarea){background:var(--bg-surface);border-color:var(--border-default);color:var(--text-primary)}
+.immersive-lab.simulation-lab .bench-viewport,.immersive-lab.simulation-lab .canvas-host{background:var(--lab-wall)}
+.immersive-lab.simulation-lab .viewport-controls{background:var(--bg-surface);border-color:var(--border-default);color:var(--brand-primary-active)}
+.immersive-lab.simulation-lab .viewport-controls button{color:var(--brand-primary-active)}
+.immersive-lab.simulation-lab .viewport-controls{z-index:4}
+.immersive-lab.simulation-lab .viewport-controls button:hover{background:var(--bg-selected);color:var(--brand-primary)}
+.immersive-lab.simulation-lab .port-button{z-index:5;border-color:var(--brand-primary-light)}
+.immersive-lab.simulation-lab .port-button:hover,.immersive-lab.simulation-lab .port-button:focus-visible{background:var(--bg-selected);color:var(--brand-primary-active);border-color:var(--brand-primary);box-shadow:0 0 0 2px var(--focus-glow)}
+.immersive-lab.simulation-lab .port-button.chosen{border-color:var(--brand-primary);box-shadow:0 0 0 2px var(--brand-primary-light)}
+.immersive-lab.simulation-lab .inventory-info,.immersive-lab.simulation-lab .sensor-grid>div,.immersive-lab.simulation-lab .activity-list,.immersive-lab.simulation-lab .lab-readiness{background:var(--bg-surface-secondary);border-color:var(--border-default);color:var(--text-secondary)}
+.immersive-lab.simulation-lab .selected-title .mini-icon,.immersive-lab.simulation-lab .item-add{background:var(--bg-selected);color:var(--brand-primary)}
+.immersive-lab.simulation-lab .reaction-readout,.immersive-lab.simulation-lab .live-readout{background:var(--bg-surface);border-color:var(--border-default)}
+.immersive-lab.simulation-lab .reaction-status,.immersive-lab.simulation-lab .sensor-grid strong{color:var(--brand-primary-active)}
+.immersive-lab.simulation-lab .reaction-readout .progress-track>span{background:var(--brand-primary)}
+.immersive-lab.simulation-lab .bench-zoom,.immersive-lab.simulation-lab .species-button{color:var(--text-link)}
+.immersive-lab.simulation-lab .bench-clear{color:var(--error-text);border-color:var(--error-border);background:var(--error-bg)}
+/* Brighter green controls within the laboratory; specimen colors stay untouched. */
+.immersive-lab.simulation-lab{--lab-action:var(--button-accessible);--lab-action-hover:var(--brand-primary-hover);--lab-action-soft:var(--bg-hover);--lab-action-selected:var(--bg-selected);--lab-action-border:var(--brand-primary-light);--lab-action-text:var(--text-link)}
+.immersive-lab.simulation-lab .btn.primary:not(:disabled){background:var(--lab-action);border-color:var(--button-accessible);color:var(--text-on-brand);box-shadow:var(--action-shadow)}
+.immersive-lab.simulation-lab .btn.primary:hover:not(:disabled){background:var(--lab-action-hover);border-color:var(--button-accessible);color:var(--text-on-brand-hover)}
+.immersive-lab.simulation-lab .btn.white:not(:disabled){background:var(--lab-action-soft);border-color:var(--lab-action-border);color:var(--lab-action-text)}
+.immersive-lab.simulation-lab .btn.white:hover:not(:disabled){background:var(--lab-action-selected);border-color:var(--lab-action)}
+.immersive-lab.simulation-lab .segmented button.active,.immersive-lab.simulation-lab .mode-tools button.active{background:var(--lab-action-selected);color:var(--lab-action-text);box-shadow:inset 0 0 0 1px var(--lab-action-border)}
+.immersive-lab.simulation-lab .segmented button:hover:not(:disabled){background:var(--lab-action-soft);color:var(--lab-action-text)}
+.immersive-lab.simulation-lab .segmented button.active:hover{background:var(--lab-action-selected)}
+.immersive-lab.simulation-lab .inventory-item>svg:last-child{background:var(--lab-action-selected);color:var(--lab-action)}
+.immersive-lab.simulation-lab .inventory-info{background:var(--lab-action-soft);color:var(--lab-action-text)}
+.immersive-lab.simulation-lab .inventory-info:hover{background:var(--lab-action-selected);color:var(--lab-action-hover)}
+.immersive-lab.simulation-lab .bench-zoom:not(:disabled){background:var(--lab-action-soft);border-color:var(--lab-action-border);color:var(--lab-action-text)}
+.immersive-lab.simulation-lab .bench-zoom:hover:not(:disabled){background:var(--lab-action-selected)}
+.immersive-lab.simulation-lab .icon-btn:not(:disabled){color:var(--lab-action)}
+.immersive-lab.simulation-lab .icon-btn:hover:not(:disabled){background:var(--lab-action-soft)}
+.immersive-lab.simulation-lab .viewport-controls button{background:var(--lab-action-soft);color:var(--lab-action-text);border-radius:6px}
+.immersive-lab.simulation-lab .viewport-controls button:hover{background:var(--lab-action-selected);color:var(--lab-action-hover)}
+.immersive-lab.simulation-lab .lab-layout,.immersive-lab.simulation-lab .properties,.immersive-lab.simulation-lab .inventory,.immersive-lab.simulation-lab .inventory-card,.immersive-lab.simulation-lab .bench-heading{border-color:var(--border-default)}
+.toast,.simulation-lab .toast{background:var(--bg-surface);border:1px solid var(--brand-primary-light);border-left:4px solid var(--brand-primary);color:var(--text-primary);box-shadow:var(--shadow-card)}
+.modal-backdrop,.action-dialog::backdrop{background:var(--overlay)}
+.modal,.action-dialog{background:var(--bg-surface);box-shadow:var(--shadow-dialog)}
+.reader-page article,.reader-toc,.reader-practice,.lesson-quiz{background:var(--bg-surface)}
+.reaction-composer .composer-ai .primary{color:var(--text-on-solid)}
+.immersive-lab.simulation-lab .btn.primary:active:not(:disabled){background:var(--brand-primary-active);border-color:var(--brand-primary-active);color:var(--text-on-solid)}
+.workspace .text-link,.workspace .back-link,.public-mobile-menu a.active{color:var(--text-link)}
+.homepage .section-heading .eyebrow,.features-section .eyebrow,.discovery-panel .eyebrow{color:var(--text-link)}
+.homepage .feature-selectors button>svg,.dashboard-quick-actions>a>svg{color:var(--brand-primary)}
+.immersive-lab.simulation-lab .icon-btn:not(:disabled){color:var(--text-link)}
+.immersive-lab.simulation-lab .inventory-item>svg:last-child{color:var(--text-link)}
+.immersive-lab.simulation-lab .inventory-info:hover,.immersive-lab.simulation-lab .viewport-controls button:hover{color:var(--text-link)}
+.admin-root :focus-visible,.admin-auth-page :focus-visible{outline:3px solid var(--border-focus);outline-offset:3px}
+.admin-role-chart>div:nth-child(2){--admin-primary:var(--chart-5)}
+.admin-role-chart>div:nth-child(3){--admin-primary:var(--chart-3)}
+.admin-role-chart>div:nth-child(4){--admin-primary:var(--chart-4)}
+.admin-role-chart>div:nth-child(5){--admin-primary:var(--chart-2)}
+@media(prefers-reduced-motion:reduce){:where(a,button,input,select,textarea){transition:none}}

@@ -1,0 +1,23 @@
+:root{
+ --admin-primary:var(--button-accessible);--admin-primary-hover:var(--button-accessible-hover);--admin-bg:var(--bg-app);--admin-surface:var(--bg-surface);--admin-ink:var(--text-primary);--admin-muted:var(--text-secondary);--admin-border:var(--border-default);--admin-subtle:var(--bg-surface-secondary);--admin-success:var(--success-text);--admin-warning:var(--status-warning);--admin-danger:var(--status-error);--admin-info:var(--status-info);
+ --brand-primary:#238D73;--brand-green:#209B79;--brand-primary-hover:#18745F;--brand-primary-active:#18745F;--brand-primary-light:#AFD8CA;--brand-primary-subtle:#DFF3EB;--brand-sage:#AFD8CA;
+ --button-accessible:#1E8069;--button-accessible-hover:#18745F;--text-on-brand-hover:#FFFFFF;--text-on-solid:#FFFFFF;--focus-glow:#238D7324;--action-shadow:0 4px 12px #238D7314;
+ --accent-orange:#F5BD69;--accent-orange-soft:#FFF3E0;--accent-orange-ink:#674018;
+ --brand-navy:#23352E;--brand-teal:#18745F;--brand-teal-light:#DFF3EB;--brand-purple:#79617E;--brand-purple-light:#EFE8F0;
+ --bg-app:#FAFCFA;--bg-page:#FAFCFA;--bg-surface:#FFFFFF;--bg-elevated:#FFFFFF;--bg-surface-secondary:#F6F3EB;--bg-surface-blue:#DFF3EB;--bg-hover:#EFF9F4;--bg-selected:#DFF3EB;
+ --text-primary:#23352E;--text-secondary:#5C716B;--text-secondary-reference:#657B75;--text-muted:#657B75;--text-muted-accessible:#5C716B;--text-on-brand:#FFFFFF;--text-link:#18745F;
+ --border-default:#E0EAE4;--border-soft:#E7EEE9;--border-strong:#AFD8CA;--border-control:#8CA69A;--border-focus:#18745F;
+ --status-success:#238D73;--status-warning:#A76B20;--status-error:#B64747;--status-info:#386B8C;
+ --success-bg:#DFF3EB;--success-text:#18745F;--success-border:#AFD8CA;
+ --warning-bg:#F5ECDD;--warning-text:#81521A;--warning-border:#DDC49C;
+ --error-bg:#F8E9E6;--error-text:#A13D3D;--error-border:#DFB7AF;
+ --info-bg:#E8EFF2;--info-text:#386B8C;--info-border:#B9CDD8;
+ --ai-bg:#EFE8F0;--ai-text:#705475;--ai-border:#D7C6DA;
+ --grade-8:#18745F;--grade-8-bg:#DFF3EB;--grade-9:#705475;--grade-9-bg:#EFE8F0;--grade-10:#386B8C;--grade-10-bg:#E8EFF2;--grade-11:#18745F;--grade-11-bg:#EFF9F4;--grade-12:#81521A;--grade-12-bg:#F5ECDD;
+ --chart-1:#209B79;--chart-2:#AFD8CA;--chart-3:#79617E;--chart-4:#A76B20;--chart-5:#386B8C;
+ /* Neutral specimen background: these tokens never tint chemical contents. */
+ --lab-workspace:#F6F3EB;--lab-wall:#FFFFFF;--lab-wall-bottom:#FFFFFF;--lab-grid:#DCE5DC;--lab-bench:#E7E4DB;--lab-bench-front:#C8C2B5;--lab-bench-edge:#B9B3A7;
+ --disabled-bg:#E9EDE8;--disabled-text:#78857D;
+ --shadow-card:0 4px 20px #26352B08;--shadow-dialog:0 24px 80px #26352B24;--overlay:#26352B66;
+ --radius-card:16px;--radius-control:10px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;
+}

@@ -1,0 +1,31 @@
+import { PracticePage } from '../features/experiments/pages/PracticePage';
+import {StudioLabPreview} from '../features/reactionStudio/StudioLabPreview';
+﻿import { refreshServerCatalog } from '../features/admin/catalogStore';
+import { lazy,Suspense,useEffect } from 'react';
+import { Link,Route,Routes,useLocation } from 'react-router-dom';
+import { HomePage } from '../features/home/HomePage';
+import { AuthPage } from '../features/auth/AuthPage';
+import { AssignmentSubmissions,Classes,ClassReports,Classroom,LearningDashboard } from "../features/classrooms/Classrooms";
+import { ExperimentAccess } from "../features/experiments/ExperimentAccess";
+import { Builder } from '../features/experiments/pages/BuilderPage';
+import { Detail } from '../features/experiments/pages/DetailPage';
+import { Library } from '../features/experiments/pages/LibraryPage';
+import { Result } from '../features/experiments/pages/ResultPage';
+import { LessonReader,Materials } from "../features/materials/Materials";
+import { Pricing } from "../features/pricing/Pricing";
+import { PublicLayout } from '../layouts/PublicLayout';
+import { WorkspaceLayout } from '../layouts/WorkspaceLayout';
+const PracticeLab = lazy(()=>import('../features/experiments/pages/PracticeLab'));
+const Lab = lazy(()=>import("../features/lab/LabPage"));
+const ReactionStudio=lazy(()=>import('../features/reactionStudio/ReactionStudio').then(m=>({default:m.ReactionStudio})));
+const AdminLayout=lazy(()=>import('../features/admin/AdminLayout').then(m=>({default:m.AdminLayout})));
+const AdminLogin=lazy(()=>import('../features/admin/AdminAuth').then(m=>({default:m.AdminLogin})));
+const AdminActivate=lazy(()=>import('../features/admin/AdminAuth').then(m=>({default:m.AdminActivate})));
+const AdminDashboard=lazy(()=>import('../features/admin/AdminDashboard').then(m=>({default:m.AdminDashboard})));
+const AdminResourceList=lazy(()=>import('../features/admin/AdminTable').then(m=>({default:m.AdminResourceList})));
+const AdminResourceEditor=lazy(()=>import('../features/admin/AdminResourceEditor').then(m=>({default:m.AdminResourceEditor})));
+const PublishedBooks=lazy(()=>import('../features/admin/BookReader').then(m=>({default:m.PublishedBooks})));
+const BookReader=lazy(()=>import('../features/admin/BookReader').then(m=>({default:m.BookReader})));
+function App(){const location=useLocation();useEffect(()=>{void refreshServerCatalog()},[]);useEffect(()=>{if(location.hash){requestAnimationFrame(()=>document.getElementById(location.hash.slice(1))?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'}));}else window.scrollTo({top:0,left:0,behavior:'instant'})},[location.pathname,location.hash]);return <Routes><Route path="/admin/login" element={<Suspense><AdminLogin/></Suspense>}/><Route path="/admin/activate" element={<Suspense><AdminActivate/></Suspense>}/><Route path="/admin" element={<Suspense><AdminLayout/></Suspense>}><Route index element={<AdminDashboard/>}/><Route path="reactions/studio" element={<ReactionStudio/>}/><Route path=":resource" element={<AdminResourceList/>}/><Route path=":resource/:id" element={<AdminResourceEditor/>}/></Route><Route path="/ebooks/:bookId" element={<Suspense><BookReader/></Suspense>}/><Route element={<PublicLayout/>}><Route path="/ebooks" element={<Suspense><PublishedBooks/></Suspense>}/><Route path="/" element={<HomePage/>}/><Route path="/practice" element={<PracticePage/>}/><Route path="/pricing" element={<Pricing page/>}/><Route path="/login" element={<AuthPage/>}/><Route path="/register" element={<AuthPage register/>}/></Route><Route path="/teacher/reaction-studio/preview/:draftId" element={<StudioLabPreview/>}/><Route element={<WorkspaceLayout/>}><Route path="/experiments" element={<Library/>}/><Route path="/experiments/:id" element={<Detail/>}/><Route path="/materials" element={<Materials/>}/><Route path="/materials/:lessonId" element={<LessonReader/>}/><Route path="/results/:attemptId" element={<Result/>}/><Route path="/student/dashboard" element={<LearningDashboard/>}/><Route path="/teacher/dashboard" element={<LearningDashboard/>}/><Route path="/student/classes" element={<Classes/>}/><Route path="/student/classes/:classId" element={<Classroom/>}/><Route path="/teacher/classes" element={<Classes/>}/><Route path="/teacher/classes/:classId" element={<Classroom/>}/><Route path="/teacher/classes/:classId/assignments/:assignmentId" element={<AssignmentSubmissions/>}/><Route path="/teacher/experiments/new" element={<Builder/>}/><Route path="/teacher/reaction-studio" element={<Suspense><ReactionStudio/></Suspense>}/><Route path="/teacher/reports" element={<ClassReports/>}/></Route><Route path="/practice/:id" element={<Suspense fallback={<div className="empty">Đang chuẩn bị phòng thí nghiệm…</div>}><PracticeLab key={location.pathname+location.search}/></Suspense>}/><Route path="/lab/:id" element={<ExperimentAccess><Suspense fallback={<div className="empty">Đang chuẩn bị phòng thí nghiệm…</div>}><Lab key={location.pathname+location.search}/></Suspense></ExperimentAccess>}/><Route path="*" element={<div className="empty"><h1>Không tìm thấy trang</h1><Link to="/">Về trang chủ</Link></div>}/></Routes>}
+export default App;
+

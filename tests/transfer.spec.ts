@@ -1,0 +1,31 @@
+import {test,expect} from '@playwright/test';
+import {labSession} from "./lab-session";
+test.beforeEach(async({page})=>labSession(page));
+test('search inventory and transfer a measured liquid aliquot',async({page})=>{
+ await page.goto('/lab/precipitate');
+ await page.getByLabel('Tìm trong kho').fill('Cốc');
+ await expect(page.locator('.inventory-item')).toHaveCount(1);
+ await page.locator('.inventory-item').click();
+ await page.getByLabel('Tìm trong kho').fill('');
+ await page.getByRole('button',{name:'Hóa chất',exact:true}).click();
+ await page.getByLabel('Tìm trong kho').fill('CuSO4');
+ await expect(page.locator('.inventory-item')).toHaveCount(1);
+ await page.locator('.inventory-item').click();
+ await page.getByRole('button',{name:'Dụng cụ',exact:true}).click();
+ await page.getByLabel('Tìm trong kho').fill('Cốc');await page.locator('.inventory-item').click();
+ const canvas=page.locator('.bench-viewport canvas');
+ const selectSource=async()=>{
+  const first=await page.evaluate(()=>JSON.parse(localStorage.getItem('virtual-lab-v1')!).state.draftLabs['lab-tester:precipitate'].vessels[0]);
+  const bounds=(await canvas.boundingBox())!,scale=Math.min(bounds.width/1000,bounds.height/485);
+  await canvas.click({position:{x:(bounds.width-1000*scale)/2+first.x*scale,y:(bounds.height-485*scale)/2+(first.y-55-60)*scale}});
+ };
+ await selectSource();
+ await page.getByLabel('Chọn dụng cụ đích').selectOption({label:'Dụng cụ 2 · Cốc thủy tinh'});
+ await page.getByLabel('Thể tích rót').fill('3');await page.getByRole('button',{name:'Rót dung dịch',exact:true}).click();
+ await expect(page.getByRole('status')).toContainText('Đã rót 3 mL');
+ await expect(page.locator('.properties')).toContainText('7.00 mL');
+ await page.waitForTimeout(1200);
+ const vessels=await page.evaluate(()=>JSON.parse(localStorage.getItem('virtual-lab-v1')!).state.draftLabs['lab-tester:precipitate'].vessels);
+ expect(vessels[0].contents.CuSO4).toBeCloseTo(.007);expect(vessels[1].contents.CuSO4).toBeCloseTo(.003);
+ await page.getByRole('button',{name:'Hoàn tác',exact:true}).click();await selectSource();await expect(page.locator('.properties')).toContainText('10.00 mL');
+});

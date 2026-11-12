@@ -1,0 +1,62 @@
+import {test,expect} from '@playwright/test';
+
+test('homepage, registration, role access, logout and login',async({page})=>{
+ const suffix=crypto.randomUUID(),teacherEmail=`teacher-${suffix}@example.com`,studentEmail=`student-${suffix}@example.com`;
+ await page.goto('/');
+ await expect(page.locator('.workspace-sidebar')).toHaveCount(0);
+ await page.getByRole('link',{name:'Đăng ký',exact:true}).click();
+ await page.getByRole('button',{name:'Giáo viên',exact:true}).click();
+ await page.getByLabel('Họ và tên').fill('Giáo viên kiểm thử');
+ await page.getByLabel('Email',{exact:true}).fill(teacherEmail);
+ await page.getByLabel('Mật khẩu',{exact:true}).fill('test-password-123');
+ await page.getByLabel('Xác nhận mật khẩu').fill('test-password-123');
+ await page.getByRole('button',{name:'Đăng ký',exact:true}).click();
+ await expect(page).toHaveURL(/teacher\/dashboard/);
+ await expect(page.getByRole('navigation',{name:'Điều hướng học tập'}).getByText('Tạo thí nghiệm')).toBeVisible();
+ await page.getByRole('link',{name:'Tạo phản ứng bằng AI',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Phân tích phương trình',exact:true})).toBeEnabled();
+ await page.getByRole('button',{name:'Phân tích phương trình',exact:true}).click();await expect(page).toHaveURL(/reaction-studio\?draft=/);
+ await expect(page.locator('.studio-support')).toHaveText('Được hỗ trợ');
+ await page.goto('/student/dashboard');
+ await expect(page).toHaveURL(/teacher\/dashboard/);
+ await page.getByRole('button',{name:'Đăng xuất'}).click();
+ await page.goto('/teacher/reports');
+ await expect(page).toHaveURL(/login/);
+ await page.getByLabel('Email',{exact:true}).fill(teacherEmail);
+ await page.getByLabel('Mật khẩu',{exact:true}).fill('wrong-password');
+ await page.getByRole('button',{name:'Đăng nhập',exact:true}).click();
+ await expect(page.getByRole('alert')).toContainText('Email hoặc mật khẩu không đúng');
+ await page.getByLabel('Mật khẩu',{exact:true}).fill('test-password-123');
+ await page.getByRole('button',{name:'Đăng nhập',exact:true}).click();
+ await expect(page).toHaveURL(/teacher\/reports/);
+ await page.getByRole('button',{name:'Đăng xuất'}).click();
+ await page.goto('/register');
+ await page.getByLabel('Họ và tên').fill('Học sinh kiểm thử');
+ await page.getByLabel('Email',{exact:true}).fill(studentEmail);
+ await page.getByLabel('Mật khẩu',{exact:true}).fill('test-password-456');
+ await page.getByLabel('Xác nhận mật khẩu').fill('test-password-456');
+ await page.getByRole('button',{name:'Đăng ký',exact:true}).click();
+ await expect(page).toHaveURL(/student\/dashboard/);
+ await expect(page.getByRole('navigation',{name:'Điều hướng học tập'}).getByText('Tạo thí nghiệm')).toHaveCount(0);
+ await page.goto('/teacher/experiments/new');
+ await expect(page).toHaveURL(/student\/dashboard/);
+});
+
+test('an existing device teacher reconnects with their password and can create a reaction',async({page})=>{
+ const id=crypto.randomUUID(),email=`legacy-${id}@example.com`,password='teacher8';
+ await page.goto('/login');
+ await page.evaluate(async({id,email,password})=>{
+  const salt=crypto.randomUUID(),key=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);
+  const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations:100000,hash:'SHA-256'},key,256);
+  const digest=Array.from(new Uint8Array(bits),b=>b.toString(16).padStart(2,'0')).join('');
+  const user={id,name:'Giáo viên tài khoản cũ',email,role:'teacher'};
+  localStorage.setItem('virtual-lab-accounts',JSON.stringify([{...user,salt,digest}]));sessionStorage.setItem('virtual-lab-session',JSON.stringify(user));
+ },{id,email,password});
+ await page.goto('/teacher/reaction-studio');await expect(page.getByRole('heading',{name:'Kết nối tài khoản giáo viên'})).toBeVisible();
+ await page.getByLabel('Mật khẩu kết nối').fill('wrong-password');await page.getByRole('button',{name:'Kết nối & tạo phản ứng',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Email hoặc mật khẩu không đúng');
+ await page.getByLabel('Mật khẩu kết nối').fill(password);await page.getByRole('button',{name:'Kết nối & tạo phản ứng',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Phân tích phương trình',exact:true})).toBeEnabled();
+ expect(await page.evaluate(()=>JSON.parse(sessionStorage.getItem('virtual-lab-session')!))).toMatchObject({id,role:'teacher',server:true});
+ await page.getByRole('button',{name:'Phân tích phương trình',exact:true}).click();await expect(page).toHaveURL(/reaction-studio\?draft=/);
+ expect((await (await page.request.get('/api/reaction-studio/config')).json()).user.id).toBe(id);
+});

@@ -1,0 +1,8 @@
+.chemical-reference-image{margin:20px 0;border:1px solid var(--border-soft);border-radius:12px;overflow:hidden;background:var(--bg-surface)}
+.chemical-reference-image>img{display:block;width:100%;height:260px;object-fit:contain;background:var(--bg-surface-secondary)}
+.chemical-reference-image>figcaption{display:grid;gap:5px;padding:14px 16px;color:var(--text-secondary);font-size:13px;line-height:1.65;overflow-wrap:anywhere}
+.chemical-reference-image>figcaption>strong{color:var(--text-primary);font-size:13px}
+.chemical-reference-image>figcaption>small,.chemical-image-unavailable{color:var(--text-muted-accessible);font-size:12px}
+.admin-detail-summary .chemical-reference-image>img{height:190px}
+.folder-atlas-item.atlas-chemical .chemical-atlas-thumbnail{width:46px;height:48px;object-fit:contain;border-radius:8px;background:var(--bg-surface-secondary)}
+@media(max-width:600px){.chemical-reference-image>img{height:210px}}

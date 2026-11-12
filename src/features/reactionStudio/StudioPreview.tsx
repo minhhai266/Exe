@@ -1,0 +1,5 @@
+import {Link} from 'react-router-dom';
+import {FlaskConical} from 'lucide-react';
+export function StudioPreview({id,version,allowed,dirty}:{id:string;version:number;allowed:boolean;dirty:boolean}){
+ return <section className="admin-panel studio-preview" aria-label="Bàn thí nghiệm xem trước"><FlaskConical size={36}/><h2>Chạy thử trên bàn Lab 2D</h2><p>Bắt đầu từ bàn trống. Thêm dụng cụ, lấy hóa chất, lắp ráp và chạy phản ứng bằng chính các thao tác học sinh sẽ sử dụng.</p><ul><li>Kho và nồng độ theo cấu hình đã lưu.</li><li>Kéo thả, Smart Snap, vẽ ống dẫn và gia nhiệt trên Lab hiện có.</li><li>Hiện tượng theo lượng chất và điều kiện thực tế, không tự chạy khi mở trang.</li></ul>{allowed&&!dirty?<Link className="admin-button primary" to={'/teacher/reaction-studio/preview/'+id}>Mở bàn Lab · phiên bản {version}</Link>:<p className="admin-field-error">{dirty?'Lưu và kiểm tra các thay đổi trước khi chạy thử.':'Bản nháp chưa đủ điều kiện mô phỏng. Xem kết quả xác thực.'}</p>}<p className="admin-form-hint">Chọn “Lưu lần chạy thử” trong Lab để lưu thao tác và trạng thái rồi trở về bản nháp.</p></section>;
+}

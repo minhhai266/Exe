@@ -1,0 +1,32 @@
+import type { Contents } from "./chemicals";
+export interface TubeShape {points:{x:number;y:number}[];from?:string;to?:string}
+export type EquipmentType='beaker'|'flask'|'tube'|'roundFlask'|'cylinder'|'gasJar'|'stand'|'clamp'|'tripod'|'rack'|'burner'|'alcoholBurner'|'stopper'|'tubing'|'dropper'|'thermometer'|'rod'|'spatula'|'funnel'|'waterBath'|'litmusPaper';
+export interface EquipmentDefinition{type:EquipmentType;name:string;capacity:number;group:'glass'|'support'|'tool';description:string;technique:string;mountable?:boolean;heatSafe?:boolean}
+export const equipmentLibrary:EquipmentDefinition[]=[
+ {type:'beaker',name:'Cốc thủy tinh',capacity:250,group:'glass',description:'Cốc có mỏ rót, phù hợp pha trộn và quan sát kết tủa.',technique:'Đặt trên bàn; khi đun phải có chân đỡ. Vạch chia chỉ gần đúng.',heatSafe:true},
+ {type:'flask',name:'Bình tam giác',capacity:250,group:'glass',description:'Thân hình nón và cổ hẹp giúp hạn chế bắn dung dịch khi lắc.',technique:'Có thể gắn lên giá. Dùng nút có đường thoát khí khi dẫn khí.',mountable:true,heatSafe:true},
+ {type:'tube',name:'Ống nghiệm',capacity:50,group:'glass',description:'Dụng cụ đáy tròn dùng cho phản ứng với lượng chất nhỏ.',technique:'Gắn vào giá ống nghiệm hoặc kẹp trước khi thêm chất; không hướng miệng ống vào người.',mountable:true,heatSafe:true},
+ {type:'roundFlask',name:'Bình cầu',capacity:250,group:'glass',description:'Bình đáy tròn cần được giữ bằng kẹp.',technique:'Gắn vào giá trước khi thêm chất hoặc đun.',mountable:true,heatSafe:true},
+ {type:'cylinder',name:'Ống đong',capacity:100,group:'glass',description:'Ống chia vạch để lấy thể tích dung dịch.',technique:'Đọc đáy mặt khum ở ngang tầm mắt. Không dùng để đun.'},
+ {type:'gasJar',name:'Bình thu khí',capacity:250,group:'glass',description:'Bình thu khí theo phương pháp đẩy nước.',technique:'Chuẩn bị đầy nước, đảo 180° rồi nối cổng vào; mô hình giản lược sự đẩy nước.'},
+ {type:'stand',name:'Giá đỡ',capacity:0,group:'support',description:'Chân nặng và trụ đứng để giữ dụng cụ.',technique:'Kéo bình hoặc ống nghiệm đến vùng kẹp. Dụng cụ đã gắn sẽ đi theo khi di chuyển giá.'},
+ {type:'clamp',name:'Kẹp',capacity:0,group:'support',description:'Kẹp giữ cổ bình hoặc ống nghiệm.',technique:'Gắn kẹp vào giá rồi đưa dụng cụ vào vùng kẹp.'},
+ {type:'tripod',name:'Chân đế',capacity:0,group:'support',description:'Chân đỡ giữa đầu đốt và dụng cụ thủy tinh.',technique:'Đặt dưới cốc, phía trên đèn trước khi đun.'},
+ {type:'rack',name:'Giá để ống nghiệm',capacity:0,group:'support',description:'Giá ba vị trí giữ ống nghiệm thẳng đứng.',technique:'Kéo ống nghiệm đến các lỗ giữ; mỗi lỗ chứa một ống.'},
+ {type:'burner',name:'Đèn Bunsen',capacity:0,group:'tool',description:'Nguồn nhiệt có thể bật, tắt và điều chỉnh công suất.',technique:'Đặt dưới dụng cụ có giá đỡ. Không bật gần hệ tạo hiđro; không đun bình kín.'},
+ {type:'alcoholBurner',name:'Đèn cồn',capacity:0,group:'tool',description:'Bình thủy tinh chứa nhiên liệu, bấc và nắp kim loại; nguồn nhiệt theo mô hình giáo dục.',technique:'Đặt dưới dụng cụ chịu nhiệt có giá đỡ. Bật, tắt và điều chỉnh nhiệt trong mô hình; không dùng gần hệ hiđro.'},
+ {type:'stopper',name:'Nút cao su',capacity:0,group:'tool',description:'Nút có lỗ dẫn khí dùng với cổ bình hoặc ống nghiệm.',technique:'Kéo đến miệng dụng cụ để gắn. Phải có đường thoát khí trước khi cho phản ứng sinh khí chạy.'},
+ {type:'tubing',name:'Ống dẫn khí',capacity:0,group:'tool',description:'Ống mềm nối cổng ra với cổng vào tương thích.',technique:'Chọn chế độ nối rồi kéo từ cổng ra đến cổng vào; đường ống đi theo vị trí và góc dụng cụ.'},
+ {type:'dropper',name:'Ống nhỏ giọt',capacity:0,group:'tool',description:'Công cụ thêm từng lượng nhỏ dung dịch.',technique:'Đặt trên bàn rồi chọn thêm giọt; một giọt mô hình là 0,05 mL.'},
+ {type:'thermometer',name:'Nhiệt kế',capacity:0,group:'tool',description:'Hiển thị nhiệt độ mô hình khi gắn vào bình.',technique:'Kéo đến dụng cụ chứa chất để gắn; đây không phải số đo thực nghiệm.'},
+ {type:'rod',name:'Đũa thủy tinh',capacity:0,group:'tool',description:'Dụng cụ khuấy dung dịch.',technique:'Đặt trên bàn, chọn bình rồi khuấy. Khuấy ảnh hưởng tốc độ quy ước, không đổi hệ số mol.'},
+ {type:'spatula',name:'Muỗng hóa chất',capacity:0,group:'tool',description:'Dụng cụ chuyển lượng nhỏ chất rắn.',technique:'Đặt trên bàn để đong chất rắn theo khối lượng.'},
+ {type:'funnel',name:'Phễu',capacity:0,group:'tool',description:'Hỗ trợ rót vào miệng bình hẹp.',technique:'Kéo đến miệng bình để gắn; không lắp cùng nút cao su.'},
+ {type:'waterBath',name:'Bể cách thủy',capacity:500,group:'glass',description:'Bể nước dùng để làm ấm ống nghiệm gián tiếp.',technique:'Thêm nước, đặt bể gần đèn, kéo ống nghiệm vào bể. Bật đèn để làm ấm nước và mẫu.',heatSafe:true},
+ {type:'litmusPaper',name:'Giấy quỳ tím',capacity:0,group:'tool',description:'Chỉ thị giấy chuyển đỏ trong axit, xanh trong bazơ.',technique:'Kéo mẩu giấy vào dung dịch hoặc chọn bình rồi nhấn Thử quỳ tím. Mỗi lần thử dùng một mẩu mới.'},
+];
+export const definition=(type:EquipmentType)=>equipmentLibrary.find(e=>e.type===type)!;
+export const isContainer=(v:Vessel|EquipmentType)=>definition(typeof v==='string'?v:v.type).capacity>0;
+export interface RunningReaction{rule?:import('./reactionRules').ReactionRule;ruleId:string;target:number;extent:number;status:'running'|'complete'|'paused';startedAt:number;before:Contents;rate:number}
+export interface Vessel{litmusResult?:'red'|'blue'|'purple';catalogId?:string;catalogName?:string;catalogDescription?:string;catalogPorts?:{id:string;type:string;x:number;y:number;direction:number;compatible:string[];occupancy:number}[];tubeShape?:TubeShape;transfer?:{targetId:string;startedAt:number};id:string;type:EquipmentType;x:number;y:number;capacity:number;volume:number;contents:Contents;rotation?:number;mountedOn?:string;slot?:number;sealed?:boolean;burning?:boolean;power?:number;stirred?:boolean;reaction?:RunningReaction;produced?:Contents;escaped?:Contents;collected?:Contents;gasVolume?:number;gasReceiving?:boolean;prepared?:boolean;effect?:string;lastObservation?:string;ports:string[];connections:string[];animation?:{startedAt:number;before:Contents;ruleId:string;extent:number};lastAddition?:{startedAt:number;chemical:string};temperature?:number}
+export function createEquipment(type:EquipmentType,id:string,x:number,y:number):Vessel{return {id,type,x,y,capacity:definition(type).capacity,volume:0,contents:{},rotation:0,temperature:25,ports:isContainer(type)?['out','in']:[],connections:[],power:.5}}

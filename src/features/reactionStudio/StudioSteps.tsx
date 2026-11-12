@@ -1,0 +1,4 @@
+const steps=['Nhập phản ứng','Phân tích & chỉnh sửa','Cấu hình thực hành','Chạy thử trên Lab','Lưu & giao bài'];
+export function StudioSteps({step,onChange,enabled,busy}:{step:number;onChange:(n:number)=>void;enabled:boolean;busy:boolean}){
+ return <><nav className="studio-steps" aria-label="Các bước tạo phản ứng">{steps.map((label,index)=><button key={label} type="button" disabled={busy||index>0&&!enabled} aria-current={step===index?'step':undefined} onClick={()=>onChange(index)}><span>{index+1}</span>{label}</button>)}</nav><div className="studio-step-navigation"><span>Bước {step+1} / 5 · {steps[step]}</span><div><button type="button" className="admin-button" disabled={busy||step===0} onClick={()=>onChange(step-1)}>Quay lại</button><button type="button" className="admin-button primary" disabled={busy||!enabled||step===4} onClick={()=>onChange(step+1)}>Tiếp theo</button></div></div></>;
+}

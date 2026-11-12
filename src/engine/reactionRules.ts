@@ -1,0 +1,10 @@
+import {documentReactionRules} from './documentReactionRules';
+import type { Contents,ChemicalId } from "./chemicals";
+export interface ReactionRule {heating?:'direct'|'water-bath';requiresWater?:boolean;requiresStirring?:boolean;ambientOxygen?:boolean;equilibriumConstant?:number;id:string;reactants:Contents;products:Contents;equation:string;effect:string;observation:string;explanation:string;source?:string;minTemperature?:number;durationSeconds?:number;teacherReviewed?:boolean;catalysts?:ChemicalId[];phenomena?:import('./phenomena').PhenomenonCode[]}
+export const reactionRules:ReactionRule[] = [
+ {id:'oxygen',reactants:{H2O2:2},products:{H2O:2,O2:1},equation:'2H₂O₂ → 2H₂O + O₂↑',effect:'bubbles',source:'https://chem.washington.edu/lecture-demos/decomposition-h2o2-mno2',observation:'Xuất hiện bọt khí oxi.',explanation:'Hiđro peoxit phân hủy thành nước và oxi. MnO₂ là chất xúc tác. Hệ số tốc độ chỉ mang tính sư phạm, không phải dữ liệu động học thực nghiệm.'},
+ {id:'hydrogen',source:'https://chem.washington.edu/lecture-demos/metals-acid',reactants:{Zn:1,HCl:2},products:{ZnCl2:1,H2:1},equation:'Zn + 2HCl → ZnCl₂ + H₂↑',effect:'bubbles',observation:'Bọt khí hiđro xuất hiện, kẽm tan dần.',explanation:'Kẽm đẩy hiđro ra khỏi dung dịch axit. Cứ 1 mol Zn phản ứng với 2 mol HCl tạo 1 mol H₂.'},
+ {id:'precipitate',source:'https://www2.chem.wisc.edu/deptfiles/genchem/lab/ccaold/main/naoh/page1.htm',reactants:{CuSO4:1,NaOH:2},products:{'Cu(OH)2':1,Na2SO4:1},equation:'CuSO₄ + 2NaOH → Cu(OH)₂↓ + Na₂SO₄',effect:'precipitate',observation:'Xuất hiện kết tủa xanh lam đồng(II) hiđroxit.',explanation:'Ion Cu²⁺ kết hợp với ion OH⁻ tạo Cu(OH)₂ ít tan, tách ra khỏi dung dịch dưới dạng kết tủa xanh.'},
+ {id:'neutralization',reactants:{HCl:1,NaOH:1},products:{NaCl:1,H2O:1},equation:'HCl + NaOH → NaCl + H₂O',effect:'neutral',observation:'Axit và bazơ được trung hòa; không có thay đổi màu thấy được. Phản ứng tỏa nhiệt; bảng quan sát cung cấp ước tính nhiệt độ theo giả thiết giản lược.',explanation:'Ion H⁺ và OH⁻ kết hợp thành nước. Khi hai chất vừa đủ, dung dịch chứa muối NaCl và nước.'}
+ ,...documentReactionRules
+];

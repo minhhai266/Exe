@@ -1,0 +1,25 @@
+.practice-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;align-items:start}
+.practice-results{min-width:0}
+.practice-library .practice-results .experiment-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.practice-library .experiment-card .experiment-visual{height:155px;padding-top:26px}
+.practice-library .experiment-visual .lab-art{height:129px}
+.practice-library .experiment-card .grade{font-size:10px;top:10px;left:10px;padding:4px 7px}
+.practice-library .experiment-body{padding:16px}
+.practice-library .experiment-body .eyebrow{font-size:9px;margin-bottom:7px}
+.practice-library .experiment-body h3{font-size:15px;line-height:1.45;min-height:44px}
+.practice-library .experiment-body p{font-size:12px;line-height:1.7;min-height:41px;margin-top:6px}
+.practice-library .card-meta{font-size:10px;gap:6px 8px;padding:11px 0}
+.practice-library .card-meta svg{width:13px;height:13px}
+.practice-library .card-start{font-size:11px;padding-top:12px}
+.practice-library .visual-number{font-size:11px;right:12px;bottom:10px}
+.practice-results .list-caption{margin-top:0}
+.practice-filters{padding:20px;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:16px;position:sticky;top:104px}
+.practice-filters>.search-field{width:100%;max-width:none;margin-bottom:20px}
+.practice-filter-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px;font-size:14px}
+.practice-filter-heading button{border:0;background:none;cursor:pointer;font:inherit}
+.practice-filter-fields{display:grid;grid-template-columns:1fr;gap:16px}
+.practice-filter-fields label{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--text-secondary);min-width:0;margin:0}
+.practice-filter-fields select{width:100%;min-width:0;padding:12px;border:1px solid var(--border-control);border-radius:10px;background:var(--bg-surface);color:var(--text-primary);font:inherit}
+@media(max-width:1099px){.practice-library .practice-results .experiment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.practice-layout{grid-template-columns:1fr;gap:24px}.practice-filters{position:static}.practice-filter-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:599px){.practice-filters{padding:16px}.practice-filter-fields{gap:14px 10px}.practice-filter-fields select{padding:10px 8px}.practice-library .list-caption{align-items:flex-start;gap:8px;flex-direction:column}.practice-library .practice-results .experiment-grid{grid-template-columns:1fr}}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" fill="none">
+  <!-- Broad ink wash, with separate dry-brush edges and scattered droplets. -->
+  <path d="M62 251C178 163 391 107 639 89C725 83 791 92 835 113C720 111 586 143 455 184C296 234 165 276 62 251Z" fill="#DFF3EB" opacity=".65"/>
+  <path d="M40 261C196 182 422 122 676 108C731 105 785 107 828 117C606 128 376 196 162 261L40 261Z" fill="#AFD8CA" opacity=".24"/>
+  <path d="M87 281C255 218 460 167 708 141" stroke="#AFD8CA" stroke-width="3" opacity=".23"/>
+  <path d="M99 290C287 221 439 192 565 172M227 270C436 208 619 169 780 151" stroke="#AFD8CA" stroke-width="2" opacity=".5"/>
+  <path d="M399 291C510 273 630 267 761 271L806 278L756 281L824 285C663 278 534 285 410 303L366 302L399 291Z" fill="#AFD8CA" opacity=".28"/>
+  <path d="M415 307C549 287 678 282 789 290" stroke="#209B79" stroke-width="2" opacity=".24"/>
+  <g fill="#AFD8CA">
+    <circle cx="71" cy="164" r="6" opacity=".3"/>
+    <circle cx="49" cy="143" r="2.5" opacity=".4"/>
+    <circle cx="91" cy="129" r="2" opacity=".32"/>
+    <ellipse cx="811" cy="222" rx="5" ry="9" transform="rotate(-32 811 222)" opacity=".3"/>
+    <circle cx="835" cy="244" r="3" opacity=".4"/>
+    <circle cx="850" cy="212" r="1.8" opacity=".4"/>
+    <circle cx="780" cy="59" r="4" opacity=".23"/>
+    <circle cx="798" cy="43" r="1.8" opacity=".35"/>
+    <circle cx="168" cy="310" r="3" opacity=".25"/>
+  </g>
+</svg>

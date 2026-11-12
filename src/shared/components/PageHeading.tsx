@@ -1,0 +1,1 @@
+export function PageHeading({label,title,description,action,variant='compact'}:{label:string;title:string;description?:string;action?:React.ReactNode;variant?:'compact'|'welcome'}) {return <section className={'page-heading page-banner page-header-'+variant}><div><div className="eyebrow">{label}</div><h1>{title}</h1>{description&&<p>{description}</p>}</div>{action}</section>}

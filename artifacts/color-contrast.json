@@ -1,0 +1,140 @@
+[
+  {
+    "text": "text-primary",
+    "background": "bg-surface",
+    "ratio": 12.96,
+    "pass": true
+  },
+  {
+    "text": "text-secondary",
+    "background": "bg-app",
+    "ratio": 5.06,
+    "pass": true
+  },
+  {
+    "text": "text-muted-accessible",
+    "background": "bg-surface",
+    "ratio": 5.21,
+    "pass": true
+  },
+  {
+    "text": "text-on-brand",
+    "background": "button-accessible",
+    "ratio": 4.83,
+    "pass": true
+  },
+  {
+    "text": "text-on-brand-hover",
+    "background": "brand-primary-hover",
+    "ratio": 5.67,
+    "pass": true
+  },
+  {
+    "text": "text-on-solid",
+    "background": "button-accessible",
+    "ratio": 4.83,
+    "pass": true
+  },
+  {
+    "text": "text-on-solid",
+    "background": "button-accessible-hover",
+    "ratio": 5.67,
+    "pass": true
+  },
+  {
+    "text": "text-link",
+    "background": "bg-app",
+    "ratio": 5.5,
+    "pass": true
+  },
+  {
+    "text": "text-link",
+    "background": "bg-selected",
+    "ratio": 4.9,
+    "pass": true
+  },
+  {
+    "text": "text-secondary",
+    "background": "bg-selected",
+    "ratio": 4.51,
+    "pass": true
+  },
+  {
+    "text": "accent-orange-ink",
+    "background": "accent-orange",
+    "ratio": 5.32,
+    "pass": true
+  },
+  {
+    "text": "text-primary",
+    "background": "accent-orange-soft",
+    "ratio": 11.82,
+    "pass": true
+  },
+  {
+    "text": "info-text",
+    "background": "info-bg",
+    "ratio": 4.95,
+    "pass": true
+  },
+  {
+    "text": "success-text",
+    "background": "success-bg",
+    "ratio": 4.9,
+    "pass": true
+  },
+  {
+    "text": "warning-text",
+    "background": "warning-bg",
+    "ratio": 5.68,
+    "pass": true
+  },
+  {
+    "text": "error-text",
+    "background": "error-bg",
+    "ratio": 5.47,
+    "pass": true
+  },
+  {
+    "text": "ai-text",
+    "background": "ai-bg",
+    "ratio": 5.44,
+    "pass": true
+  },
+  {
+    "text": "brand-teal",
+    "background": "brand-teal-light",
+    "ratio": 4.9,
+    "pass": true
+  },
+  {
+    "text": "grade-8",
+    "background": "grade-8-bg",
+    "ratio": 4.9,
+    "pass": true
+  },
+  {
+    "text": "grade-9",
+    "background": "grade-9-bg",
+    "ratio": 5.44,
+    "pass": true
+  },
+  {
+    "text": "grade-10",
+    "background": "grade-10-bg",
+    "ratio": 4.95,
+    "pass": true
+  },
+  {
+    "text": "grade-11",
+    "background": "grade-11-bg",
+    "ratio": 5.27,
+    "pass": true
+  },
+  {
+    "text": "grade-12",
+    "background": "grade-12-bg",
+    "ratio": 5.68,
+    "pass": true
+  }
+]

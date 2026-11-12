@@ -1,0 +1,27 @@
+import ReactDOM from 'react-dom/client';
+import {BrowserRouter} from 'react-router-dom';
+import App from "./app/App";
+import "./styles/styles.css";
+import '@fontsource/be-vietnam-pro/400.css';
+import '@fontsource/be-vietnam-pro/500.css';
+import '@fontsource/be-vietnam-pro/600.css';
+import '@fontsource/be-vietnam-pro/700.css';
+import '@fontsource/be-vietnam-pro/800.css';
+import "./styles/upgrade.css";
+import "./features/lab/styles/assembly.css";
+import "./features/lab/styles/lab-ease.css";
+import "./styles/blue-lab.css";
+import "./styles/compact-pages.css";
+import "./styles/tokens.css";
+import "./features/home/home-motion.css";
+import "./styles/scientific-design.css";
+import "./styles/workspace-theme.css";
+import "./styles/botanical-theme.css";
+import {useStore} from "./features/lab/labStore";
+import {useClassrooms,useAccess} from "./features/classrooms/classroomStore";
+window.addEventListener('storage',event=>{
+ if(event.key==='virtual-lab-classrooms-v1')void useClassrooms.persist.rehydrate();
+ if(event.key==='virtual-lab-v1')void useStore.persist.rehydrate();
+ if(event.key==='virtual-lab-access-v1')void useAccess.persist.rehydrate();
+});
+ReactDOM.createRoot(document.getElementById('root')!).render(<BrowserRouter><App/></BrowserRouter>);

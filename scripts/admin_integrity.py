@@ -1,0 +1,12 @@
+from pathlib import Path
+def edit(path,old,new):
+ p=Path(path);s=p.read_text(encoding='utf-8');assert old in s,(path,old[:70]);p.write_text(s.replace(old,new),encoding='utf-8')
+edit('server/admin/admin.test.ts', '.n).toBe(2)}finally', '.n).toBe(3)}finally')
+edit('server/admin/admin.test.ts', 'rmSync(folder)', 'rmdirSync(folder)')
+edit('src/features/admin/AdminResourceEditor.tsx', "import { BookContent }", "import { refreshServerCatalog } from './catalogStore';\nimport { BookContent }")
+edit('src/features/admin/AdminResourceEditor.tsx', "setDraft(result);setNotice", "setDraft(result);if(!['schools','users'].includes(resource))await refreshServerCatalog(true);setNotice")
+edit('server/admin/database.ts', 'export class AdminDatabase', "const englishNames:Record<string,string>={Zn:'Zinc',HCl:'Hydrochloric acid',CuSO4:'Copper(II) sulfate',NaOH:'Sodium hydroxide',ZnCl2:'Zinc chloride',H2:'Hydrogen','Cu(OH)2':'Copper(II) hydroxide',Na2SO4:'Sodium sulfate',NaCl:'Sodium chloride',H2O:'Water',H2O2:'Hydrogen peroxide',O2:'Oxygen',MnO2:'Manganese(IV) oxide',CaCO3:'Calcium carbonate',indicator:'Phenolphthalein'};\nexport class AdminDatabase")
+edit('server/admin/database.ts', 'englishName:c.formula', 'englishName:englishNames[id]')
+edit('server/admin/database.ts', "e.id,e.title,JSON.stringify(e));for(const [type,ids]", "e.id,e.title,JSON.stringify(e));if(reactionRules.some(r=>r.id===e.id))this.run('INSERT INTO experiment_dependencies VALUES(?,?,?)',e.id,'reactions',e.id);for(const [type,ids]")
+edit('server/admin/validation.ts', "const reactants=rows(d.reactants||[]),products=rows(d.products||[]),catalog=", "const reactants=rows(d.reactants||[]),products=rows(d.products||[]);if(existing?.data.builtin&&store.get(\"SELECT COUNT(*) n FROM experiment_dependencies WHERE entity_type='reactions' AND entity_id=?\",existing.id).n&&['reactants','products'].some(side=>{const next=side==='reactants'?reactants:products;return next.length!==existing.data[side].length||next.some(p=>!existing.data[side].some((old:any)=>old.chemical===p.chemical&&old.coefficient===p.coefficient))}))throw new ApiError(409,'Phản ứng chuẩn đang được bài thực hành sử dụng; tạo phản ứng mới để thay thành phần hoặc hệ số.');const catalog=")
+edit('src/features/admin/catalogStore.ts', ' for(const record of (catalog.reactions', ' reactionRules.splice(0,reactionRules.length,...structuredClone(canonicalRules));\n for(const record of (catalog.reactions')

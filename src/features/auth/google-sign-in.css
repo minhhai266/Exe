@@ -1,0 +1,10 @@
+.google-auth{margin-top:24px;min-width:0}
+.auth-intro .auth-title-lead,.auth-intro .auth-title-accent{display:block}
+.auth-card>.auth-roles{margin-top:24px}
+.google-auth-button{display:flex;justify-content:center;min-height:40px;max-width:100%;overflow:hidden}
+.google-auth-button.is-inactive{display:none}
+.google-auth-fallback{width:100%;justify-content:center;gap:12px;min-height:44px}
+.google-auth-status{font-size:13px;line-height:1.7;margin-top:12px}
+.auth-divider{display:flex;align-items:center;gap:16px;color:var(--text-muted-accessible);font-size:12px;margin:20px 0}
+.auth-divider::before,.auth-divider::after{content:'';height:1px;background:var(--border-default);flex:1}
+.auth-card .auth-divider+form{margin-top:0}

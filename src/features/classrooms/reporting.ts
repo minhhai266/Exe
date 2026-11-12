@@ -1,0 +1,9 @@
+import { chemicals,type ChemicalId } from '../../engine/chemicals';
+import type {Classroom,Assignment,Submission} from "./classroomStore";
+const date=(value:string)=>new Date(value).toLocaleString("vi-VN");
+export function exportReports(classes:Classroom[],assignments:Assignment[],submissions:Submission[],matches:(s:Submission|undefined)=>boolean=()=>true){
+ const rows:(string|number)[][]=[['Lớp','Bài giao','Học sinh','Trạng thái','Số lần nộp','Thời gian nộp gần nhất','Điểm giáo viên','Nhận xét','Thời gian làm (giây)','Lần thử trong phiên','Điểm tự động tạm tính','Hóa chất đã dùng','Số lần xem giải thích']];
+ for(const c of classes)for(const a of assignments.filter(a=>a.classId===c.id))for(const m of c.members){const mine=submissions.filter(s=>s.assignmentId===a.id&&s.studentId===m.id);const latest=mine[0];if(!matches(latest))continue;rows.push([c.name,a.title,m.name,latest?'Đã nộp':'Chưa nộp',mine.length,latest?date(latest.submittedAt):'',latest?.grade??'',latest?.feedback??'',latest?.attempt.seconds??'',latest?.attempt.session?.attemptNumber??'',latest?.attempt.assessment?latest.attempt.assessment.reduce((sum,r)=>sum+(r.earned||0),0):'',latest?.attempt.assignmentConfig?.stock.map(s=>`${chemicals[s.id as ChemicalId].formula}: ${(latest.attempt.stockUsed?.[s.id]||0).toFixed(2)} ${s.unit}`).join('; ')||'',latest?.attempt.session?.events.filter(e=>e.type==='EXPLANATION_VIEWED').length??''])}
+ const csv='\uFEFF'+rows.map(row=>row.map(value=>{let text=String(value);if(/^[=+@\-\t\r]/.test(text))text="'"+text;return '"'+text.replaceAll('"','""')+'"'}).join(',')).join('\r\n');
+ const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));const link=document.createElement('a');link.href=url;link.download='bao-cao-lop-hoc.csv';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
